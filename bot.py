@@ -10,7 +10,7 @@ def error_callback(update, context):
 
 def start(update, context):
 	chat_id=update.message.chat_id
-	msg=f"<b>Hi Sir {chat_id} Send /cmds For Watch My Commands Availabes</b>"
+	msg=f"<b>Hi Sir Send /cmds For Watch My Commands Availabes</b>"
 	update.message.reply_text(msg, parse_mode=ParseMode.HTML)
 
 def cmds(update, context):
