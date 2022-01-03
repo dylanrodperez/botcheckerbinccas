@@ -1,28 +1,14 @@
-import os
-import telegram
-from telegram import InlineKeyboardMarkup, InlineKeyboardButton
-from telegram.ext import Updater, CommandHandler
+from telegram import Update
+from telegram.ext import Updater, CommandHandler, CallbackContext
 
 
-def start(update, context):
-update.message.reply_text(
-text=('Hi Sir Use My Command /cmds'),)
+def hello(update: Update, context: CallbackContext) -> None:
+    update.message.reply_text(f'Hello {update.effective_user.first_name}')
 
-if __name__ == '__main__':
 
-    token = os.environ['TOKEN']
+updater = Updater('YOUR TOKEN HERE')
 
-    bot = telegram.Bot(token=token)
+updater.dispatcher.add_handler(CommandHandler('hello', hello))
 
-    updater = Updater(token=token, use_context=True)
-
-    dp = updater.dispatcher
-    dp.add_handler(
-        CommandHandler('start', start)
-    )
-
-    updater.start_polling()
-
-    print(f'running at @{bot.username}')
-
-    updater.idle()
+updater.start_polling()
+updater.idle()
