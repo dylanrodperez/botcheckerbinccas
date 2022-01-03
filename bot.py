@@ -6,7 +6,7 @@ from telegram.ext import Updater, CommandHandler
 
 def handle_start(update, context):
     update.message.reply_text(
-        text=('<b>Hi Sir Use My Command /cmds</b>'),)
+        text=('*Hi Sir Use My Command /cmds*'),)
 
 
 if __name__ == '__main__':
