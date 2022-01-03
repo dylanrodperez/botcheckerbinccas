@@ -4,9 +4,13 @@ from telegram import InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.ext import Updater, CommandHandler
 
 
-def handle_start(update, context):
-    update.message.reply_text(
-        text=('**Hi Sir Use My Command /cmds**'),'MARKDOWN')
+def start(update, context):
+update.message.reply_text(
+text=('Hi Sir Use My Command /cmds'),)
+
+def start(update, context):
+update.message.reply_text(
+text=('My Cmds: /gen'),)
 
 
 if __name__ == '__main__':
@@ -19,7 +23,7 @@ if __name__ == '__main__':
 
     dp = updater.dispatcher
     dp.add_handler(
-        CommandHandler('start', handle_start)
+        CommandHandler('start', start)
     )
 
     updater.start_polling()
