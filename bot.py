@@ -32,9 +32,9 @@ def main():
 	dp=updater.dispatcher
 
 	# Eventos que activarán nuestro bot.
-	# /comandos
-	dp.add_handler(CommandHandler('coin',	coin))
-dp.add_handler(CommandHandler('start',	start))
+        dp.add_handler(CommandHandler('start', start))
+	dp.add_handler(CommandHandler('coin', coin))
+
 	dp.add_error_handler(error_callback)
     # Comienza el bot
 	updater.start_polling()
