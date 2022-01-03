@@ -18,9 +18,6 @@ def start(update, context):
 	# Podemos llamar a otros comandos, sin que se haya activado en el chat (/help).
 #	coin(update, context)
 def cmds(update, context):
-	''' ⚪️/⚫️ Moneda 
-	Genera un número elatorio entre 1 y 2.
-	'''
 	cid=update.message.chat_id
 	msg="<b>My Commands Availables: <code>/gen</code></b>"
 	# Responde directametne en el canal donde se le ha hablado.
