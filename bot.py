@@ -2,7 +2,7 @@
 import random
 from telegram import (ParseMode)
 from telegram.ext import (Updater, CommandHandler)
-  sys.exit()
+import sys
 	
 	
 def start(update, context):
