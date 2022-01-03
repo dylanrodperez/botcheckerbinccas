@@ -23,12 +23,8 @@ def main():
 	updater=Updater(TOKEN, use_context=True)
 	dp=updater.dispatcher
 	dp.add_handler(CommandHandler('start',	start))
-	dp.add_handler(CommandHandler('cmds', 'ola'))
 
 	dp.add_error_handler(error_callback)
 	updater.start_polling()
 	updater.idle()
 
-if __name__ == '__main__':
-	print(('[Nombre del bot] Start...'))
-	main()
