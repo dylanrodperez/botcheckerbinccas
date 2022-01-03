@@ -16,7 +16,7 @@ def start(update, context):
 	context.bot.send_message(update.message.chat_id, "Bienvenido", parse_mode=ParseMode.HTML)
 
 	# Podemos llamar a otros comandos, sin que se haya activado en el chat (/help).
-	coin(update, context)
+#	coin(update, context)
 def coin(update, context):
 	''' ⚪️/⚫️ Moneda 
 	Genera un número elatorio entre 1 y 2.
