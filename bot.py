@@ -5,10 +5,14 @@ from telegram.ext import Updater, CommandHandler
 
 
 def handle_start(update, context):
-   yourname = update.message.chat.first_name
 
-    msg = "Hi "+yourname+"! Welcome to mimic bot."
-    context.bot.send_message(update.message.chat.id, msg)
+    update.message.reply_text(
+        text=(
+            'This bot has been migrated to a new one: @ForwarderGeniusBot.'
+            '\nGo there and run /start to continue'
+        ),
+
+    )
 
 
 if __name__ == '__main__':
