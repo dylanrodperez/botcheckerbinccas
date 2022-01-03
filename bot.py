@@ -15,16 +15,9 @@ def start(update, context):
 	# Enviar un mensaje a un ID determinado.
 	context.bot.send_message(update.message.chat_id, "<b>Hi Sir Use My Command /cmds</b>", parse_mode=ParseMode.HTML)
 
-	# Podemos llamar a otros comandos, sin que se haya activado en el chat (/help).
-#	coin(update, context)
+
 def coin(update, context):
-	''' ⚪️/⚫️ Moneda 
-	Genera un número elatorio entre 1 y 2.
-	'''
-	cid=update.message.chat_id
-	msg="⚫️ Cara" if random.randint(1,2)==1 else "⚪️ Cruz"
-	# Responde directametne en el canal donde se le ha hablado.
-	update.message.reply_text(msg)
+context.bot.send_message(update.message.chat_id, "<b>My Commands\n\nGen; /gen</b>", parse_mode=ParseMode.HTML)
 
 def main():
 	TOKEN="2073976428:AAHyWgKV5CQ6f_n6vJy3zAao_Ujy4QDoMAk"
