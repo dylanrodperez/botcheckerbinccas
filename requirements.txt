@@ -1,1 +1,1 @@
-pip freeze
+sudo pip3 install python-telegram-bot
