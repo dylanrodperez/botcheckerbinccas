@@ -1,39 +1,55 @@
-import time
-import telebot
+from telegram.ext import Updater
+from telegram.ext import  CommandHandler, MessageHandler, Filters
+import  os
+import json
 
+#telegram token
 TOKEN = "2073976428:AAHyWgKV5CQ6f_n6vJy3zAao_Ujy4QDoMAk"
-bot = telebot.TeleBot(token=TOKEN)
 
-def findat(msg):
-    # from a list of texts, it finds the one with the '@' sign
-    for i in msg:
-        if '@' in i:
-            return i
+#commandhandler for start command
+def start(update, context):
+    yourname = update.message.chat.first_name
 
-@bot.message_handler(commands=['start']) # welcome message handler
-def send_welcome(message):
-    bot.reply_to(message, '(placeholder text)')
+    msg = "Hi "+yourname+"! Welcome to mimic bot."
+    context.bot.send_message(update.message.chat.id, msg)
 
-@bot.message_handler(commands=['help']) # help message handler
-def send_welcome(message):
-    bot.reply_to(message, 'ALPHA = FEATURES MAY NOT WORK')
+#Message handler for texts only
+def mimic(update, context):
+    context.bot.send_message(update.message.chat.id, update.message.text)
 
-@bot.message_handler(func=lambda msg: msg.text is not None and '@' in msg.text)
-# lambda function finds messages with the '@' sign in them
-# in case msg.text doesn't exist, the handler doesn't process it
-def at_converter(message):
-    texts = message.text.split()
-    at_text = findat(texts)
-    if at_text == '@': # in case it's just the '@', skip
-        pass
-    else:
-        insta_link = "https://instagram.com/{}".format(at_text[1:])
-        bot.reply_to(message, insta_link)
+    
+#commandhandler for details command
+def details(update, context):
+    context.bot.send_message(update.message.chat.id, str(update))
 
-while True:
-    try:
-        bot.polling(none_stop=True)
-        # ConnectionError and ReadTimeout because of possible timout of the requests library
-        # maybe there are others, therefore Exception
-    except Exception:
-        time.sleep(15)
+#Error handler
+def error(update, context):
+    context.bot.send_message(update.message.chat.id, "Oops! Error encountered!")
+
+#main logic
+def main():
+    
+    #to get the updates from bot
+    updater = Updater(token=TOKEN, use_context=True)
+    
+    #to dispatch the updates to respective handlers
+    dp = updater.dispatcher
+    
+    #handlers
+    dp.add_handler(CommandHandler("start",start))
+    dp.add_handler(CommandHandler("details", details))
+
+    dp.add_handler(MessageHandler(Filters.text, mimic))
+
+
+    dp.add_error_handler(error)
+    
+    #to start webhook
+    updater.start_webhook(listen="0.0.0.0",port=os.environ.get("PORT",443),
+                          url_path=TOKEN,
+                          webhook_url="https://mimic-app.herokuapp.com/"+TOKEN)
+    updater.idle()
+
+#start application with main function
+if __name__ == '__main__':
+    main()
