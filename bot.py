@@ -8,13 +8,8 @@ def handle_start(update, context):
 
     update.message.reply_text(
         text=(
-            'This bot has been migrated to a new one: @ForwarderGeniusBot.'
-            '\nGo there and run /start to continue'
-        ),
-        reply_markup=InlineKeyboardMarkup([
-            [InlineKeyboardButton(text='Go to the bot', url='https://t.me/ForwarderGeniusBot')]
-        ])
-    )
+            'Hi'
+        ))
 
 
 if __name__ == '__main__':
@@ -27,7 +22,7 @@ if __name__ == '__main__':
 
     dp = updater.dispatcher
     dp.add_handler(
-        CommandHandler('start', 'hola')
+        CommandHandler('start', handle_start)
     )
 
     updater.start_polling()
