@@ -2,13 +2,11 @@
 import random
 from telegram import (ParseMode)
 from telegram.ext import (Updater, CommandHandler)
-import sys
 	
 	
 def start(update, context):
 context.bot.send_message(update.message.chat_id, "<b>Hi Sir Use My Command /cmds</b>", parse_mode=ParseMode.HTML)
 
-	coin(update, context)
 def coin(update, context):
 	''' ⚪️/⚫️ Moneda 
 	Genera un número elatorio entre 1 y 2.
@@ -25,7 +23,7 @@ def main():
 
 	# Eventos que activarán nuestro bot.
 	# /comandos
-	dp.add_handler(CommandHandler('start',	start)return)
+	dp.add_handler(CommandHandler('start',	start))
 	dp.add_handler(CommandHandler('coin',	coin))
 
 	dp.add_error_handler(error_callback)
