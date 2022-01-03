@@ -2,7 +2,9 @@
 import random
 from telegram import (ParseMode)
 from telegram.ext import (Updater, CommandHandler)
-
+  sys.exit()
+	
+	
 def start(update, context):
 context.bot.send_message(update.message.chat_id, "<b>Hi Sir Use My Command /cmds</b>", parse_mode=ParseMode.HTML)
 
@@ -23,7 +25,7 @@ def main():
 
 	# Eventos que activarán nuestro bot.
 	# /comandos
-	dp.add_handler(CommandHandler('start',	start)exit())
+	dp.add_handler(CommandHandler('start',	start)  sys.exit())
 	dp.add_handler(CommandHandler('coin',	coin))
 
 	dp.add_error_handler(error_callback)
