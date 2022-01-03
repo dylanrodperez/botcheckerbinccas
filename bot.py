@@ -22,7 +22,7 @@ def cmds(update, context):
 	Genera un número elatorio entre 1 y 2.
 	'''
 	cid=update.message.chat_id
-	msg="MY Commands: <code>/gen</code>"
+	msg="<b>My Commands Availables: <code>/gen</code></b>"
 	# Responde directametne en el canal donde se le ha hablado.
 	update.message.reply_text(msg, parse_mode=ParseMode.HTML)
 
