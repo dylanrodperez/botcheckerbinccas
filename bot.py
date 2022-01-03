@@ -2,11 +2,21 @@
 import random
 from telegram import (ParseMode)
 from telegram.ext import (Updater, CommandHandler)
-	
-	
-def start(update, context):
-context.bot.send_message(update.message.chat_id, "<b>Hi Sir Use My Command /cmds</b>", parse_mode=ParseMode.HTML)
 
+# [Opcional] Recomendable poner un log con los errores que apareceran por pantalla.
+import logging
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',level=logging.INFO)
+logger = logging.getLogger(__name__)
+def error_callback(update, context):
+    logger.warning('Update "%s" caused error "%s"', update, context.error)
+
+def start(update, context):
+	''' START '''
+	# Enviar un mensaje a un ID determinado.
+	context.bot.send_message(update.message.chat_id, "Bienvenido", parse_mode=ParseMode.HTML)
+
+	# Podemos llamar a otros comandos, sin que se haya activado en el chat (/help).
+	coin(update, context)
 def coin(update, context):
 	''' ⚪️/⚫️ Moneda 
 	Genera un número elatorio entre 1 y 2.
