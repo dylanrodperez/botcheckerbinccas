@@ -5,16 +5,10 @@ from telegram.ext import Updater, CommandHandler
 
 
 def handle_start(update, context):
+   yourname = update.message.chat.first_name
 
-    update.message.reply_text(
-        text=(
-            'This bot has been migrated to a new one: @ForwarderGeniusBot.'
-            '\nGo there and run /start to continue'
-        ),
-        reply_markup=InlineKeyboardMarkup([
-            [InlineKeyboardButton(text='Go to the bot', url='https://t.me/ForwarderGeniusBot')]
-        ])
-    )
+    msg = "Hi "+yourname+"! Welcome to mimic bot."
+    context.bot.send_message(update.message.chat.id, msg)
 
 
 if __name__ == '__main__':
