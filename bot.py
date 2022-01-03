@@ -9,9 +9,13 @@ def error_callback(update, context):
 logger.warning('Update "%s" caused error "%s"', update, context.error)
 
 def start(update, context):
+	''' START '''
 context.bot.send_message(update.message.chat_id, "Bienvenido", parse_mode=ParseMode.HTML)
 
 def coin(update, context):
+	''' ⚪️/⚫️ Moneda 
+	Genera un número elatorio entre 1 y 2.
+	'''
 cid=update.message.chat_id
 msg="⚫️ Cara" if random.randint(1,2)==1 else "⚪️ Cruz"
 update.message.reply_text(msg)
