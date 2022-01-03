@@ -14,7 +14,9 @@ context.bot.send_message(update.message.chat_id, "<b>Hi Sir Use My Command /cmds
 
 
 def cmds(update, context):
-context.bot.send_message(update.message.chat_id, "<b>My Commands Availables: /gen</b>", parse_mode=ParseMode.HTML reply_to_message_id=reply_to_message_id.message)
+cid=update.message.chat_id
+msg="⚫️ Cara" if random.randint(1,2)==1 else "⚪️ Cruz"
+update.message.reply_text(msg)
 
 def main():
 	TOKEN="2073976428:AAHyWgKV5CQ6f_n6vJy3zAao_Ujy4QDoMAk"
