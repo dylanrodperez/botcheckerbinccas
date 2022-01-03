@@ -1,14 +1,24 @@
-import Update
-import Updater, CommandHandler, CallbackContext
+# -*- coding: utf-8 -*-
 
+from telegram.ext import (Updater, CommandHandler)
 
-def hello(update: Update, context: CallbackContext) -> None:
-    update.message.reply_text(f'Hello {update.effective_user.first_name}')
+def start(update, context):
+	''' START '''
+	# Enviar un mensaje a un ID determinado.
+	context.bot.send_message(update.message.chat_id, "Bienvenido")
 
+def main():
+	TOKEN="2073976428:AAHyWgKV5CQ6f_n6vJy3zAao_Ujy4QDoMAk"
+	updater=Updater(TOKEN, use_context=True)
+	dp=updater.dispatcher
 
-updater = Updater('2073976428:AAHyWgKV5CQ6f_n6vJy3zAao_Ujy4QDoMAk')
+	# Eventos que activarán nuestro bot.
+	dp.add_handler(CommandHandler('start',	start))
 
-updater.dispatcher.add_handler(CommandHandler('hello', hello))
+	# Comienza el bot
+	updater.start_polling()
+	# Lo deja a la escucha. Evita que se detenga.
+	updater.idle()
 
-updater.start_polling()
-updater.idle()
+if __name__ == '__main__':
+	main()
