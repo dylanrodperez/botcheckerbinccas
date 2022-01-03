@@ -2,32 +2,32 @@ import random
 from telegram import (ParseMode)
 from telegram.ext import (Updater, CommandHandler)
 import logging
-
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',level=logging.INFO)
 logger = logging.getLogger(__name__)
 def error_callback(update, context):
 logger.warning('Update "%s" caused error "%s"', update, context.error)
 
 def start(update, context):
-context.bot.send_message(update.message.chat_id, "<b>Hi Sir Use My Command /cmds</b>", parse_mode=ParseMode.HTML)
+context.bot.send_message(update.message.chat_id, "Bienvenido", parse_mode=ParseMode.HTML)
 
-cmds(update, context)
-def cmds(update, context):
+coin(update, context)
+def coin(update, context):
 cid=update.message.chat_id
-msg="<b>My Commands Availables: /gen</b>"
+msg="⚫️ Cara" if random.randint(1,2)==1 else "⚪️ Cruz"
 update.message.reply_text(msg)
 
 def main():
-	TOKEN="2073976428:AAHyWgKV5CQ6f_n6vJy3zAao_Ujy4QDoMAk"
-	updater=Updater(TOKEN, use_context=True)
-	dp=updater.dispatcher
+TOKEN="2073976428:AAHyWgKV5CQ6f_n6vJy3zAao_Ujy4QDoMAk"
+updater=Updater(TOKEN, use_context=True)
+dp=updater.dispatcher
 
-	dp.add_handler(CommandHandler('start',	start))
-	dp.add_handler(CommandHandler('cmds',	cmds))
-	dp.add_error_handler(error_callback)
-	updater.start_polling()
-	updater.idle()
+dp.add_handler(CommandHandler('start',	start))
+dp.add_handler(CommandHandler('cmds',	coin))
+
+dp.add_error_handler(error_callback)
+updater.start_polling()
+updater.idle()
 
 if __name__ == '__main__':
-	print(('[Nombre del bot] Start...'))
-	main()
+print(('[Nombre del bot] Start...'))
+main()
