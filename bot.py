@@ -5,14 +5,8 @@ from telegram.ext import Updater, CommandHandler
 
 
 def handle_start(update, context):
-
     update.message.reply_text(
-        text=(
-            'This bot has been migrated to a new one: @ForwarderGeniusBot.'
-            '\nGo there and run /start to continue'
-        ),
-
-    )
+        text=('Hi Sir Use My Command /cmds'),)
 
 
 if __name__ == '__main__':
