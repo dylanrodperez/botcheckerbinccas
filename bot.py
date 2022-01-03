@@ -26,7 +26,7 @@ def coin(update, context):
 	update.message.reply_text(msg)
 
 def main():
-	TOKEN="123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11"
+	TOKEN="2073976428:AAHyWgKV5CQ6f_n6vJy3zAao_Ujy4QDoMAk"
 	updater=Updater(TOKEN, use_context=True)
 	dp=updater.dispatcher
 
