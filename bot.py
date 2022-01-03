@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-'''
-Bot para telegram
-'''
+
 import random
 from telegram import (ParseMode)
 from telegram.ext import (Updater, CommandHandler)
@@ -14,7 +11,6 @@ def error_callback(update, context):
     logger.warning('Update "%s" caused error "%s"', update, context.error)
 
 def start(update, context):
-	''' START '''
 	# Enviar un mensaje a un ID determinado.
 	context.bot.send_message(update.message.chat_id, "Bienvenido", parse_mode=ParseMode.HTML)
 
@@ -30,7 +26,7 @@ def coin(update, context):
 	update.message.reply_text(msg)
 
 def main():
-	TOKEN="123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11"
+	TOKEN="2073976428:AAHyWgKV5CQ6f_n6vJy3zAao_Ujy4QDoMAk"
 	updater=Updater(TOKEN, use_context=True)
 	dp=updater.dispatcher
 
