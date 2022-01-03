@@ -24,7 +24,7 @@ def cmds(update, context):
 	cid=update.message.chat_id
 	msg="MY Commands: <code>/gen</code>"
 	# Responde directametne en el canal donde se le ha hablado.
-	update.message.reply_text(msg)
+	update.message.reply_text(msg, parse_mode=ParseMode.HTML)
 
 def main():
 	TOKEN="2073976428:AAHyWgKV5CQ6f_n6vJy3zAao_Ujy4QDoMAk"
