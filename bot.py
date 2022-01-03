@@ -8,11 +8,6 @@ def start(update, context):
 update.message.reply_text(
 text=('Hi Sir Use My Command /cmds'),)
 
-def cmds(update, context):
-update.message.reply_text(
-text=('My Cmds: /gen'),)
-
-
 if __name__ == '__main__':
 
     token = os.environ['TOKEN']
