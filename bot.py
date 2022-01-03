@@ -6,10 +6,7 @@ from telegram.ext import Updater, CommandHandler
 
 def handle_start(update, context):
 
-    update.message.reply_text(
-        text=(
-            'Hi'
-        ))
+    update.message.reply_text('Hi')
 
 
 if __name__ == '__main__':
