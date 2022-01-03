@@ -33,7 +33,7 @@ if __name__ == '__main__':
 
     dp = updater.dispatcher
     dp.add_handler(
-        CommandHandler('start', startbots)
+        CommandHandler('start', handle_start)
     )
 
     updater.start_polling()
