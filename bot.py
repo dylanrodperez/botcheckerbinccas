@@ -8,10 +8,11 @@ logger = logging.getLogger(__name__)
 def error_callback(update, context):
     logger.warning('Update "%s" caused error "%s"', update, context.error)
 
+userid=update.message.from.id
+
 def start(update, context):
 	chat_id=update.message.chat_id
-        userid=update.message.id
-	msg=f"<b>Hi Sir {userid} Send /cmds For Watch My Commands Availabes</b>"
+	msg=f"<b>Hi Sir {chat_id} Send /cmds For Watch My Commands Availabes</b>"
 	update.message.reply_text(msg, parse_mode=ParseMode.HTML)
 
 def cmds(update, context):
