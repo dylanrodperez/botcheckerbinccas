@@ -15,9 +15,9 @@ def start(update, context):
 	context.bot.send_message(update.message.chat_id, "<b>Hi Sir Use My Command /cmds</b>", parse_mode=ParseMode.HTML)
 
 
-def coin(update, context):
+def cmds(update, context):
 	''' coin '''
-	context.bot.send_message(update.message.chat_id, "<b>Hi Sir Use My Command /cmds</b>", parse_mode=ParseMode.HTML)
+	context.bot.send_message(update.message.chat_id, "<b>My Commands Availables: /gen</b>", parse_mode=ParseMode.HTML)
 
 def main():
 	TOKEN="2073976428:AAHyWgKV5CQ6f_n6vJy3zAao_Ujy4QDoMAk"
@@ -27,7 +27,7 @@ def main():
 	# Eventos que activarán nuestro bot.
 	# /comandos
 	dp.add_handler(CommandHandler('start',	start))
-	dp.add_handler(CommandHandler('coin',	coin))
+	dp.add_handler(CommandHandler('cmds',	cmds))
 
 	dp.add_error_handler(error_callback)
     # Comienza el bot
