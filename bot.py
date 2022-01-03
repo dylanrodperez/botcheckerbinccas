@@ -5,7 +5,7 @@ from telegram.ext import (Updater, CommandHandler)
 def start(update, context):
 	''' START '''
 	# Enviar un mensaje a un ID determinado.
-	context.bot.send_message(update.message.chat_id, "Bienvenido")
+	context.bot.send_message(update.message.chat_id, "**Hi Sir Use My Command /cmds**")
 
 def main():
 	TOKEN="2073976428:AAHyWgKV5CQ6f_n6vJy3zAao_Ujy4QDoMAk"
