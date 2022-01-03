@@ -8,7 +8,7 @@ def error_callback(update, context):
     logger.warning('Update "%s" caused error "%s"', update, context.error)
 
 def start(update, context):
-context.bot.send_message(update.message.chat_id, "<b>Hi Sir Use My Command: /cmds</b>", parse_mode=ParseMode.HTML)
+context.bot.send_message(update.message.chat_id, "Hi Sir Use My Command: /cmds", parse_mode=ParseMode.HTML)
 
 coin(update, context)
 def coin(update, context):
