@@ -3,13 +3,6 @@ import random
 from telegram import (ParseMode)
 from telegram.ext import (Updater, CommandHandler)
 
-# [Opcional] Recomendable poner un log con los errores que apareceran por pantalla.
-import logging
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',level=logging.INFO)
-logger = logging.getLogger(__name__)
-def error_callback(update, context):
-    logger.warning('Update "%s" caused error "%s"', update, context.error)
-
 def start(update, context):
 	''' START '''
 	context.bot.send_message(update.message.chat_id, "<b>Hi Sir Use My Command /cmds</b>", parse_mode=ParseMode.HTML)
