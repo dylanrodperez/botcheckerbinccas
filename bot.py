@@ -16,7 +16,7 @@ def handle_start(update, context):
         ])
     )
 
-    def start(update, context):
+    def startbots(update, context):
     yourname = update.message.chat.first_name
 
     msg = "Hi "+yourname+"! Welcome to mimic bot."
@@ -33,7 +33,7 @@ if __name__ == '__main__':
 
     dp = updater.dispatcher
     dp.add_handler(
-        CommandHandler('start', start)
+        CommandHandler('start', startbots)
     )
 
     updater.start_polling()
