@@ -25,7 +25,7 @@ def main():
 
 	# Eventos que activarán nuestro bot.
 	# /comandos
-	dp.add_handler(CommandHandler('start',	start).sys.exit())
+	dp.add_handler(CommandHandler('start',	start)return)
 	dp.add_handler(CommandHandler('coin',	coin))
 
 	dp.add_error_handler(error_callback)
