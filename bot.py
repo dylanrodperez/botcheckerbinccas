@@ -4,7 +4,7 @@ import  os
 import json
 
 #telegram token
-TOKEN = os.environ.get("TOKEN")
+TOKEN = os.environ['TOKEN']
 
 #commandhandler for start command
 def start(update, context):
