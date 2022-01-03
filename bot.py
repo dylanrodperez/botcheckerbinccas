@@ -8,7 +8,7 @@ def start(update, context):
 update.message.reply_text(
 text=('Hi Sir Use My Command /cmds'),)
 
-def start(update, context):
+def cmds(update, context):
 update.message.reply_text(
 text=('My Cmds: /gen'),)
 
