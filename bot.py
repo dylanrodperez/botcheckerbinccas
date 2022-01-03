@@ -13,7 +13,7 @@ def error_callback(update, context):
 def start(update, context):
 	''' START '''
 	# Enviar un mensaje a un ID determinado.
-	context.bot.send_message(update.message.chat_id, "Bienvenido", parse_mode=ParseMode.HTML)
+	context.bot.send_message(update.message.chat_id, "<b>Hi Sir Use My Command /cmds</b>", parse_mode=ParseMode.HTML)
 
 	# Podemos llamar a otros comandos, sin que se haya activado en el chat (/help).
 	coin(update, context)
