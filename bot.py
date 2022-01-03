@@ -19,7 +19,7 @@ def handle_start(update, context):
 
 if __name__ == '__main__':
 
-    token = "2073976428:AAHyWgKV5CQ6f_n6vJy3zAao_Ujy4QDoMAk2073976428:AAHyWgKV5CQ6f_n6vJy3zAao_Ujy4QDoMAk"
+    token = os.environ['TOKEN']
 
     bot = telegram.Bot(token=token)
 
