@@ -9,6 +9,12 @@ logger = logging.getLogger(__name__)
 def error_callback(update, context):
     logger.warning('Update "%s" caused error "%s"', update, context.error)
 
+
+def start(update, context):
+	''' START '''
+	# Enviar un mensaje a un ID determinado.
+	context.bot.send_message(update.message.chat_id, "Bienvenido", parse_mode=ParseMode.HTML)
+
 	# Podemos llamar a otros comandos, sin que se haya activado en el chat (/help).
 	coin(update, context)
 def coin(update, context):
@@ -28,7 +34,7 @@ def main():
 	# Eventos que activarán nuestro bot.
 	# /comandos
 	dp.add_handler(CommandHandler('coin',	coin))
-
+dp.add_handler(CommandHandler('start',	start))
 	dp.add_error_handler(error_callback)
     # Comienza el bot
 	updater.start_polling()
