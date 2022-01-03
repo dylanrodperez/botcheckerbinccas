@@ -8,20 +8,13 @@ logger = logging.getLogger(__name__)
 def error_callback(update, context):
 logger.warning('Update "%s" caused error "%s"', update, context.error)
 
+def start(update, context):
+context.bot.send_message(update.message.chat_id, "<b>Hi Sir Use My Command /cmds</b>", parse_mode=ParseMode.HTML)
 
-	coin(update, context)
-def coin(update, context):
-	''' ⚪️/⚫️ Moneda 
-	Genera un número elatorio entre 1 y 2.
-	'''
-	cid=update.message.chat_id
-	msg="⚫️ Cara" if random.randint(1,2)==1 else "⚪️ Cruz"
-	# Responde directametne en el canal donde se le ha hablado.
-	update.message.reply_text(msg)
-
+cmds(update, context)
 def cmds(update, context):
 cid=update.message.chat_id
-msg="⚫️ Cara" if random.randint(1,2)==1 else "⚪️ Cruz"
+msg="<b>My Commands Availables: /gen</b>"
 update.message.reply_text(msg)
 
 def main():
